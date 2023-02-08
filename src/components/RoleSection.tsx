@@ -9,7 +9,7 @@ const RoleSection = () => {
         We Offer Opportunities in areas like
       </h1>
       <div className="flex flex-col md:flex-row justify-around">{roleSource.map((element) => {
-        return (<Role image={element.image} text={element.text} />)
+        return (<Role key={element.id} image={element.image} text={element.text} />)
       })}</div>
     </article>
   );
