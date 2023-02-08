@@ -1,4 +1,5 @@
 import Features from "../components/Features";
+import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import HomeAbout from "../components/HomeAbout";
 import Navbar from "../components/Navbar";
@@ -14,6 +15,7 @@ const Home = () => {
             <Features />
             <HomeAbout />
             <Subscribe />
+            <Footer />
         </section>
      );
 }
