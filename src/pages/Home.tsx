@@ -3,6 +3,7 @@ import HeroSection from "../components/HeroSection";
 import HomeAbout from "../components/HomeAbout";
 import Navbar from "../components/Navbar";
 import RoleSection from "../components/RoleSection";
+import Subscribe from "../components/Subscribe";
 
 const Home = () => {
     return ( 
@@ -12,6 +13,7 @@ const Home = () => {
             <RoleSection />
             <Features />
             <HomeAbout />
+            <Subscribe />
         </section>
      );
 }
