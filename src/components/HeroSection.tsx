@@ -2,7 +2,7 @@ import doctors from "../assets/svg/doctors.svg";
 
 const HeroSection = () => {
     return ( 
-        <section className="font-kumbh flex flex-col md:flex-row justify-center items-center ">
+        <section className="font-kumbh flex flex-col md:flex-row justify-center items-center mb-24 ">
             <article className="p-5 w-[100%] md:w-[40%]">
                 <h1 className="text-5xl font-bold text-primarygreen">We Provide Dependable HealthCare Staffing</h1>
                 <h2 className="text-primarygreen text-xl mt-10">The key to success is within us</h2>
