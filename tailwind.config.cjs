@@ -8,9 +8,9 @@ module.exports = {
     extend: {
       colors:{
         "buttongreen":"#009473",
-        "primarygreen":"#049167",
-        "secondarygreen":"#E5F4EF",
-        "lightgray":"#F0F4F7"
+        "primarygreen":"#134944",
+        "secondarygreen":"#0BA597",
+        "lightgreen":"#F4FEFC"
       }
     },
     fontFamily: {

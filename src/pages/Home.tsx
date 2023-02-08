@@ -1,7 +1,9 @@
+import Navbar from "../components/Navbar";
+
 const Home = () => {
     return ( 
-        <section>
-            <h1>Hello World</h1>
+        <section className="bg-lightgreen">
+            <Navbar />
         </section>
      );
 }
