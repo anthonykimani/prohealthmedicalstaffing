@@ -24,14 +24,18 @@ const NavList = () => {
         <button className="hidden md:block rounded-sm border border-white bg-transparent px-4 py-1 my-2">
           Register
         </button>
-        <i
-          className="block md:hidden bx bx-menu bx-md"
-          onClick={handleToggle}
-        ></i>
+        {showMenu ? (
+          <i className="block md:hidden bx bx-x bx-md" onClick={handleToggle}></i>
+        ) : (
+          <i
+            className="block md:hidden bx bx-menu bx-md"
+            onClick={handleToggle}
+          ></i>
+        )}
       </nav>
       {/* Mobile Menu */}
       {showMenu ? (
-        <ul className="flex flex-col md:hidden mt-5 h-screen">
+        <ul className="absolute bg-secondarygreen flex flex-col md:hidden h-screen w-screen ">
           <li className="m-3 list-none">Home</li>
           <li className="m-3 list-none">About Us</li>
           <li className="m-3 list-none">Contact</li>
