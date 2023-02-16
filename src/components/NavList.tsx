@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const NavList = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -6,7 +7,7 @@ const NavList = () => {
   // handle toggle menu
   const handleToggle = () => {
     setShowMenu(!showMenu);
-  };
+  };  
 
   return (
     <section className="bg-secondarygreen text-white font-kumbh">
@@ -21,9 +22,10 @@ const NavList = () => {
           <li className="mx-4 list-none">Careers</li>
         </ul>
 
-        <button className="hidden md:block rounded-sm border border-white bg-transparent px-4 py-1 my-2">
+        <Link to="/register"><button className="hidden md:block rounded-sm border border-white bg-transparent px-4 py-1 my-2">
           Register
-        </button>
+        </button></Link>
+        
         {showMenu ? (
           <i className="block md:hidden bx bx-x bx-md" onClick={handleToggle}></i>
         ) : (
