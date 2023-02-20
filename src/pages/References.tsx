@@ -1,6 +1,18 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { FormContext } from "../context/FormContext";
 
 const References = () => {
+
+  const { form, setForm } = useContext<any>(FormContext);
+
+  const handleInput = (event: { target: HTMLInputElement; }) =>{
+    const name = event.target.name;
+    const value = event.target.value;
+    return setForm({ ...form, [name]:value.toLowerCase()})
+  }
+
+  console.log(form);
   return (
     <>
       <div>
@@ -64,6 +76,8 @@ const References = () => {
                 First Name
               </label>
               <input
+              onChange={handleInput}
+              name="first_reference_firstname"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter first name"
@@ -76,6 +90,8 @@ const References = () => {
                 Last Name
               </label>
               <input
+              onChange={handleInput}
+              name="first_reference_lastname"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"
@@ -91,6 +107,8 @@ const References = () => {
                 Company
               </label>
               <input
+              onChange={handleInput}
+              name="company"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter Company"
@@ -103,6 +121,8 @@ const References = () => {
                 Phone
               </label>
               <input
+              onChange={handleInput}
+              name="company_phone"
                 type="number"
                 tabIndex={0}
                 aria-label="Enter Phone"
@@ -118,6 +138,8 @@ const References = () => {
                 Address
               </label>
               <input
+              onChange={handleInput}
+              name="company_address"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"
@@ -133,6 +155,8 @@ const References = () => {
                 First Name
               </label>
               <input
+              onChange={handleInput}
+              name="second_reference_firstname"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter first name"
@@ -145,6 +169,8 @@ const References = () => {
                 Last Name
               </label>
               <input
+              onChange={handleInput}
+              name="second_reference_lastname"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"
@@ -160,6 +186,8 @@ const References = () => {
                 Company
               </label>
               <input
+              onChange={handleInput}
+              name="second_company_name"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter Company"
@@ -172,6 +200,8 @@ const References = () => {
                 Phone
               </label>
               <input
+              onChange={handleInput}
+              name="second_company_phone"
                 type="number"
                 tabIndex={0}
                 aria-label="Enter Phone"
@@ -187,6 +217,8 @@ const References = () => {
                 Address
               </label>
               <input
+              onChange={handleInput}
+              name="second_company_address"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"
@@ -202,6 +234,8 @@ const References = () => {
                 First Name
               </label>
               <input
+              onChange={handleInput}
+              name="third_reference_firstname"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter first name"
@@ -214,6 +248,8 @@ const References = () => {
                 Last Name
               </label>
               <input
+              onChange={handleInput}
+              name="third_reference_lastname"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"
@@ -229,6 +265,8 @@ const References = () => {
                 Company
               </label>
               <input
+              onChange={handleInput}
+              name="previous_company"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter Company"
@@ -241,6 +279,8 @@ const References = () => {
                 Phone
               </label>
               <input
+              onChange={handleInput}
+              name="third_company_phone"
                 type="number"
                 tabIndex={0}
                 aria-label="Enter Phone"
@@ -256,6 +296,8 @@ const References = () => {
                 Address
               </label>
               <input
+              onChange={handleInput}
+              name="previous_company_address"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"

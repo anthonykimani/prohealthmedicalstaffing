@@ -7,10 +7,14 @@ import Registration from "./pages/Registration";
 import Education from "./pages/Education";
 import References from "./pages/References";
 import Employment from "./pages/Employment";
+import { FormContext } from "./context/FormContext";
 
 function App() {
+  const [ form, setForm ] = useState<object>({});
+
   return (
     <div className="App">
+      <FormContext.Provider value={{form, setForm}}>
       <Router>
         <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -20,6 +24,7 @@ function App() {
           <Route path="/employment" element={<Employment />}></Route>
         </Routes>
       </Router>
+      </FormContext.Provider>
     </div>
   );
 }

@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { FormContext} from "../context/FormContext";
 import { states } from "../helpers/statesSource";
 
-function Registration() {
+const Registration = () => {
+
+  const { form, setForm } = useContext<any>(FormContext);
+
+  const handleInput = (event: { target: HTMLInputElement; }) =>{
+    const name = event.target.name;
+    const value = event.target.value;
+    return setForm({ ...form, [name]:value.toLowerCase()})
+  }
+
+  console.log(form);
+
   return (
     <>
       <div>
@@ -81,6 +93,8 @@ function Registration() {
                 First name
               </label>
               <input
+              onChange={handleInput}
+              name="first_name"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter first name"
@@ -93,6 +107,8 @@ function Registration() {
                 Last name
               </label>
               <input
+              onChange={handleInput}
+              name="last_name"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"
@@ -107,6 +123,8 @@ function Registration() {
                 Email Address
               </label>
               <input
+              onChange={handleInput}
+              name="email"
                 type="email"
                 tabIndex={0}
                 aria-label="Enter email Address"
@@ -119,6 +137,8 @@ function Registration() {
                 Phone number
               </label>
               <input
+              onChange={handleInput}
+              name="phone_number"
                 type="number"
                 tabIndex={0}
                 aria-label="Enter phone number"
@@ -133,6 +153,8 @@ function Registration() {
                 Date of birth
               </label>
               <input
+              onChange={handleInput}
+              name="date_of_birth"
                 type="date"
                 tabIndex={0}
                 aria-label="Enter date of birth"
@@ -145,6 +167,8 @@ function Registration() {
                 Place of birth
               </label>
               <input
+              onChange={handleInput}
+              name="place_of_birth"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter place of birth"
@@ -159,6 +183,8 @@ function Registration() {
                 Address Line 1
               </label>
               <input
+              onChange={handleInput}
+              name="person_address_1"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter address here"
@@ -171,6 +197,8 @@ function Registration() {
                 Address Line 2
               </label>
               <input
+              onChange={handleInput}
+              name="person_address_2"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter address here"
@@ -185,6 +213,8 @@ function Registration() {
                 City
               </label>
               <input
+              onChange={handleInput}
+              name="city"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter city here"
@@ -213,6 +243,8 @@ function Registration() {
                 Zip Code
               </label>
               <input
+              onChange={handleInput}
+              name="zip_code"
                 type="number"
                 tabIndex={0}
                 aria-label="Enter city here"
@@ -225,7 +257,7 @@ function Registration() {
                 City
               </label>
               <select
-                name=""
+                name="nursing_position"
                 id=""
                 className="w-64 bg-gray-100 text-sm font-medium leading-none text-gray-800 p-3 border rounded border-gray-200"
               >
@@ -246,6 +278,8 @@ function Registration() {
                 Upload Drivers License/ID
               </label>
               <input
+              onChange={handleInput}
+              name="driver_license"
                 type="file"
                 tabIndex={0}
                 aria-label="Enter city here"
@@ -257,6 +291,8 @@ function Registration() {
                 Upload SSN
               </label>
               <input
+              onChange={handleInput}
+              name="ssn_upload"
                 type="file"
                 tabIndex={0}
                 aria-label="Enter city here"
@@ -270,6 +306,8 @@ function Registration() {
                 Upload BLS/CPR certification
               </label>
               <input
+              onChange={handleInput}
+              name="cpr_certification"
                 type="file"
                 tabIndex={0}
                 aria-label="Enter city here"
@@ -281,6 +319,8 @@ function Registration() {
                 Upload TB Skin Test (Ensure its within usable time frame)
               </label>
               <input
+              onChange={handleInput}
+              name="skin_test"
                 type="file"
                 tabIndex={0}
                 aria-label="Enter city here"
@@ -294,6 +334,8 @@ function Registration() {
                 Upload Covid Certificate
               </label>
               <input
+              onChange={handleInput}
+              name="covid_certificate"
                 type="file"
                 tabIndex={0}
                 aria-label="Enter city here"
@@ -305,6 +347,8 @@ function Registration() {
             <div className="py-4 flex items-center">
               <div className="bg-white dark:bg-gray-800 border rounded-sm border-gray-400 dark:border-gray-700 w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
                 <input
+                onChange={handleInput}
+                name=""
                   type="checkbox"
                   tabIndex={0}
                   aria-label="I agree with the terms of service"

@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { FormContext } from "../context/FormContext";
 
 const Education = () => {
+
+  const { form, setForm } = useContext<any>(FormContext);
+
+  const handleInput = (event: { target: HTMLInputElement; }) =>{
+    const name = event.target.name;
+    const value = event.target.value;
+    return setForm({ ...form, [name]:value.toLowerCase()})
+  }
+
+  console.log(form);
+
   return (
     <>
       <div>
@@ -71,6 +84,8 @@ const Education = () => {
                 High School
               </label>
               <input
+              name="high_school_name"
+              onChange={handleInput}
                 type="name"
                 tabIndex={0}
                 aria-label="Enter first name"
@@ -83,6 +98,8 @@ const Education = () => {
                 Address
               </label>
               <input
+              name="high_school_address"
+              onChange={handleInput}
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"
@@ -97,6 +114,8 @@ const Education = () => {
                 From
               </label>
               <input
+              name="high_school_start"
+              onChange={handleInput}
                 type="date"
                 tabIndex={0}
                 aria-label="Enter date here"
@@ -108,6 +127,8 @@ const Education = () => {
                 To
               </label>
               <input
+              name="high_school_end"
+              onChange={handleInput}
                 type="date"
                 tabIndex={0}
                 aria-label="Enter date here"
@@ -120,17 +141,21 @@ const Education = () => {
               <h3>Did you graduate?</h3>
               <div>
                 <input
+              
+                onChange={handleInput}
                   type="radio"
                   id="yes"
-                  name="choice"
+                  name="graduate_choice"
                   className="mr-2"
                   value="yes"
                 />
                 <label className="text-lg font-medium">Yes</label>
                 <input
+              
+                onChange={handleInput}
                   type="radio"
                   id="no"
-                  name="choice"
+                  name="graduate_choice"
                   className="ml-6 mr-2"
                   value="no"
                 />
@@ -144,6 +169,8 @@ const Education = () => {
                 Diploma
               </label>
               <input
+              name="diploma"
+              onChange={handleInput}
                 type="text"
                 tabIndex={0}
                 aria-label="Enter date of birth"
@@ -156,6 +183,8 @@ const Education = () => {
                 College
               </label>
               <input
+              name="college"
+              onChange={handleInput}
                 type="text"
                 tabIndex={0}
                 aria-label="Enter place of birth"
@@ -170,6 +199,8 @@ const Education = () => {
                 Address
               </label>
               <input
+              name="college_address_1"
+              onChange={handleInput}
                 type="name"
                 tabIndex={0}
                 aria-label="Enter address here"
@@ -182,6 +213,8 @@ const Education = () => {
                 Address Line 2
               </label>
               <input
+              name="college_address_2"
+              onChange={handleInput}
                 type="name"
                 tabIndex={0}
                 aria-label="Enter address here"
@@ -196,6 +229,8 @@ const Education = () => {
                 From
               </label>
               <input
+              name="college_start"
+              onChange={handleInput}
                 type="date"
                 tabIndex={0}
                 aria-label="Enter date here"
@@ -207,6 +242,8 @@ const Education = () => {
                 To
               </label>
               <input
+              name="college_end"
+              onChange={handleInput}
                 type="date"
                 tabIndex={0}
                 aria-label="Enter date here"
@@ -219,17 +256,21 @@ const Education = () => {
               <h3>Did you graduate?</h3>
               <div>
                 <input
+                
+                onChange={handleInput}
                   type="radio"
                   id="yes"
-                  name="choice"
+                  name="graduated_college"
                   className="mr-2"
                   value="yes"
                 />
                 <label className="text-lg font-medium">Yes</label>
                 <input
+                
+                onChange={handleInput}
                   type="radio"
                   id="no"
-                  name="choice"
+                  name="graduated_college"
                   className="ml-6 mr-2"
                   value="no"
                 />
@@ -243,6 +284,8 @@ const Education = () => {
                 Degree
               </label>
               <input
+              name="degree"
+              onChange={handleInput}
                 type="text"
                 tabIndex={0}
                 aria-label="Enter date of birth"
@@ -255,6 +298,8 @@ const Education = () => {
                 Other
               </label>
               <input
+              name="other_school"
+              onChange={handleInput}
                 type="text"
                 tabIndex={0}
                 aria-label="Enter place of birth"
@@ -269,6 +314,8 @@ const Education = () => {
                 Address
               </label>
               <input
+              name="degree_address_1"
+              onChange={handleInput}
                 type="name"
                 tabIndex={0}
                 aria-label="Enter address here"
@@ -281,6 +328,8 @@ const Education = () => {
                 Address Line 2
               </label>
               <input
+              name="degree_address_2"
+              onChange={handleInput}
                 type="name"
                 tabIndex={0}
                 aria-label="Enter address here"
@@ -295,6 +344,8 @@ const Education = () => {
                 From
               </label>
               <input
+              name="degree_start"
+              onChange={handleInput}
                 type="date"
                 tabIndex={0}
                 aria-label="Enter date here"
@@ -306,6 +357,8 @@ const Education = () => {
                 To
               </label>
               <input
+              name="degree_end"
+              onChange={handleInput}
                 type="date"
                 tabIndex={0}
                 aria-label="Enter date here"
@@ -318,17 +371,21 @@ const Education = () => {
               <h3>Did you graduate?</h3>
               <div>
                 <input
+                
+                onChange={handleInput}
                   type="radio"
                   id="yes"
-                  name="choice"
+                  name="graduate_degree"
                   className="mr-2"
                   value="yes"
                 />
                 <label className="text-lg font-medium">Yes</label>
                 <input
+                
+                onChange={handleInput}
                   type="radio"
                   id="no"
-                  name="choice"
+                  name="graduate_degree"
                   className="ml-6 mr-2"
                   value="no"
                 />

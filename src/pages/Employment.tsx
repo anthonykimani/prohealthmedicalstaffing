@@ -1,6 +1,32 @@
+import { FormEvent, MouseEvent, useContext } from "react";
 import { Link } from "react-router-dom";
+import { FormContext } from "../context/FormContext";
 
 const Employment = () => {
+
+  const { form, setForm } = useContext<any>(FormContext);
+
+  const handleInput = (event: { target: HTMLInputElement; }) =>{
+    const name = event.target.name;
+    const value = event.target.value;
+    return setForm({ ...form, [name]:value.toLowerCase()})
+  }
+
+  const handleSubmit = async (event:any) => {
+    event?.preventDefault();
+    let sendData = await fetch("https://sheet.best/api/sheets/2ec35c42-0a19-40cd-8677-232c048fc2d7",{
+      method:"POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify(form)
+    })
+    let data = await sendData.json();
+    console.log(data);
+  }
+
+  console.log(form);
+
   return (
     <>
       <div>
@@ -65,6 +91,8 @@ const Employment = () => {
                 Company
               </label>
               <input
+              onChange={handleInput}
+              name="previous_company"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter Company"
@@ -77,6 +105,8 @@ const Employment = () => {
                 Phone
               </label>
               <input
+              onChange={handleInput}
+              name="previous_company_phone"
                 type="number"
                 tabIndex={0}
                 aria-label="Enter Phone"
@@ -92,6 +122,8 @@ const Employment = () => {
                 Address
               </label>
               <input
+              onChange={handleInput}
+              name="previous_company_address"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"
@@ -107,6 +139,8 @@ const Employment = () => {
                 Supervisor
               </label>
               <input
+              onChange={handleInput}
+              name="previous_supervisor"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter Supervisor"
@@ -119,6 +153,8 @@ const Employment = () => {
                 Job Title
               </label>
               <input
+              onChange={handleInput}
+              name="previous_job_title"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter Job Title"
@@ -134,6 +170,8 @@ const Employment = () => {
                 Starting Salary
               </label>
               <input
+              onChange={handleInput}
+              name="starting_salary"
                 type="number"
                 tabIndex={0}
                 aria-label="Enter Salary"
@@ -146,6 +184,8 @@ const Employment = () => {
                 Ending Salary
               </label>
               <input
+              onChange={handleInput}
+              name="ending_salary"
                 type="number"
                 tabIndex={0}
                 aria-label="Enter Phone"
@@ -161,6 +201,8 @@ const Employment = () => {
                 Responsibilities
               </label>
               <input
+              onChange={handleInput}
+              name="responsibilities"
                 type="text"
                 tabIndex={0}
                 aria-label="Enter Responsibilities"
@@ -176,6 +218,8 @@ const Employment = () => {
                 From
               </label>
               <input
+              onChange={handleInput}
+              name="employed_from"
                 type="date"
                 tabIndex={0}
                 aria-label="Enter date here"
@@ -187,6 +231,8 @@ const Employment = () => {
                 To
               </label>
               <input
+              onChange={handleInput}
+              name="employed_to"
                 type="date"
                 tabIndex={0}
                 aria-label="Enter date here"
@@ -201,6 +247,8 @@ const Employment = () => {
                 Reason for leaving
               </label>
               <input
+              onChange={handleInput}
+              name="reason_for_leaving"
                 type="name"
                 tabIndex={0}
                 aria-label="Enter Reason for leaving"
@@ -213,6 +261,8 @@ const Employment = () => {
                 Phone
               </label>
               <input
+              onChange={handleInput}
+              name=""
                 type="number"
                 tabIndex={0}
                 aria-label="Enter Phone"
@@ -228,6 +278,8 @@ const Employment = () => {
                 Address
               </label>
               <input
+              onChange={handleInput}
+              name=""
                 type="name"
                 tabIndex={0}
                 aria-label="Enter last name"
@@ -252,6 +304,7 @@ const Employment = () => {
               role="button"
               aria-label="Next step"
               className="flex items-center justify-center py-4 px-7 focus:outline-none bg-primarygreen text-white border rounded border-gray-400 mt-7 md:mt-14  focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
+              onClick={handleSubmit}
             >
               <span className="text-sm font-medium text-center  capitalize">
                 Complete Registration
